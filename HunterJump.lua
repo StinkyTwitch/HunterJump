@@ -20,12 +20,12 @@ end
 HUNTER JUMP
 --------------------------------------------------------------------------------------------------]]
 function HunterJump()
-	local first_direction = ( ObjectFacing( "Player" ) )
-	local second_direction = ( mod( ObjectFacing( "Player" ) + math.pi, math.pi * 2 ) )
+	local initial_vector = ( ObjectFacing( "Player" ) )
+	local disengage_vector = ( mod( ObjectFacing( "Player" ) + math.pi, math.pi * 2 ) )
 	
-	FaceDirection( second_direction )
+	FaceDirection( disengage_vector )
 	C_Timer.After(.15, function() CastSpellByName("Disengage") end)
-	C_Timer.After(.30, function () FaceDirection( first_direction ) end )
-	print(first_direction)
-	print(second_direction)
+	C_Timer.After(.30, function () FaceDirection( initial_vector ) end )
+	print( initial_vector )
+	print( disengage_vector )
 end
