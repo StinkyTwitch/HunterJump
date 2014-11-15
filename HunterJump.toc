@@ -1,0 +1,7 @@
+## Interface: 60000
+## Title: HunterJump
+## Notes: Hunter Jump Forward
+## Author: StinkyTwitch
+## Version: 1.0
+
+HunterJump.lua
