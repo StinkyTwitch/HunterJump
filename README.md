@@ -14,8 +14,8 @@ If you run in to any issues please email "stinkytwitch@gmail.com".
 Thank you.
 
 Credits:
-G1zStar
-CrazyCactuaR
-Drizz
+G1zStar (suggestions and help)
+CrazyCactuaR (irc help)
+Drizz (big help in the original concept)
 l0l1dk (for Firehack)
 woe (for the C_Timer help)
