@@ -3,12 +3,12 @@
 --[[------------------------------------------------------------------------------------------------
 SLASH COMMAND
 --------------------------------------------------------------------------------------------------]]
-SLASH_LIBROTATEPRACMD1 = "/hunterjump"
+SLASH_HUNTERJUMPCMD1 = "/hunterjump"
 
 --[[------------------------------------------------------------------------------------------------
 ROTATE COMMAND LIST
 --------------------------------------------------------------------------------------------------]]
-function SlashCmdList.LIBROTATEPRACMD(msg,editbox)
+function SlashCmdList.HUNTERJUMPCMD(msg,editbox)
 	if msg == "" then
 		HunterJump()
 	else
@@ -20,10 +20,12 @@ end
 HUNTER JUMP
 --------------------------------------------------------------------------------------------------]]
 function HunterJump()
-	local first_direction = ( mod( ObjectFacing( "Player" ) + math.pi, math.pi * 2 ) )
-	local second_direction = ( first_direction - math.pi )
+	local first_direction = ( ObjectFacing( "Player" ) )
+	local second_direction = ( mod( ObjectFacing( "Player" ) + math.pi, math.pi * 2 ) )
 	
-	FaceDirection( first_direction )
-	C_Timer.After(.25, function() CastSpellByName(Disengage) end)
 	FaceDirection( second_direction )
+	C_Timer.After(.25, function() CastSpellByName("Disengage") end)
+	C_Timer.After(.50, function () FaceDirection( first_direction ) end )
+	print(first_direction)
+	print(second_direction)
 end
