@@ -17,6 +17,19 @@ function SlashCmdList.HUNTERJUMPCMD(msg,editbox)
 end
 
 --[[------------------------------------------------------------------------------------------------
+VERIFY
+--------------------------------------------------------------------------------------------------]]
+function VerifyDisengage( vector )
+	local current_vector = ObjectFacing( "Player" )
+	
+	if current_vector ~= vector then
+		FaceDirection( vector )
+		CastSpellByName( "Disengage" )
+	else
+		CastSpellByName( "Disengage" )
+	end
+end
+--[[------------------------------------------------------------------------------------------------
 HUNTER JUMP
 --------------------------------------------------------------------------------------------------]]
 function HunterJump()
@@ -24,7 +37,7 @@ function HunterJump()
 	local disengage_vector = ( mod( ObjectFacing( "Player" ) + math.pi, math.pi * 2 ) )
 	
 	C_Timer.After(.20, function() FaceDirection( disengage_vector ) end )
-	C_Timer.After(.35, function() CastSpellByName("Disengage") end)
+	C_Timer.After(.35, function() VerifyDisengage( disengage_vector ) end)
 	C_Timer.After(.50, function () FaceDirection( initial_vector ) end )
 	print( initial_vector )
 	print( disengage_vector )
